@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.medyo:fancybuttons-1.8.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fancybuttons-1.8.4.aar/d4e6a7480ce8b3dd2f56266b2fb9d6e3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fancybuttons-1.8.4.aar/d4e6a7480ce8b3dd2f56266b2fb9d6e3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.medyo/fancybuttons/1.8.4/7dc512b747fd99ae7815d29487d61a2bc1e893ac/fancybuttons-1.8.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

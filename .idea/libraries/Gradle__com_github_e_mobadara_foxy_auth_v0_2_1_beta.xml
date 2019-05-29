@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.e-mobadara:foxy-auth-v0.2.1-beta">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/foxy-auth-v0.2.1-beta.aar/42862a92d5f9ab6116535bc74b8bb09c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/foxy-auth-v0.2.1-beta.aar/42862a92d5f9ab6116535bc74b8bb09c/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.e-mobadara/foxy-auth/v0.2.1-beta/17a5468f1cc19509b059c9678d595dfd774f6573/foxy-auth-v0.2.1-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
