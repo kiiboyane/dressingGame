@@ -7,6 +7,7 @@ import com.dressTheKid.OpeningActivity;
 import com.dressTheKid.Shuffle;
 import com.dressTheKid.assets.GameSound;
 import com.dressTheKid.assets.OpeningScreenAsset;
+import com.dressTheKid.assets.Tries;
 import com.e_mobadara.audiomanaging.AudioSettingsActivity;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
@@ -15,6 +16,9 @@ import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Components.Sprite;
 import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import com.dressTheKid.R;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class OpeningScreen extends Screen {
     public Sprite background ;
@@ -28,15 +32,19 @@ public class OpeningScreen extends Screen {
         super(game);
          f =false;
          ff = ispressed =  false;
+        Tries.badTry =Tries.goodTry =0 ;
+        Tries.duree = new ArrayList<>();
+        SimpleDateFormat endingGame = new SimpleDateFormat("yyyy.MM.dd ' ' HH:mm:ss");
+        Tries.creat = endingGame.getCalendar();
         background = new Sprite(game , OpeningScreenAsset.background,0,0,game.getGraphics().getHeight(),game.getGraphics().getWidth());
         playbutton = new Sprite(game , OpeningScreenAsset.playButton,40*game.getGraphics().getWidth()/100 , 30*game.getGraphics().getHeight()/100,40*game.getGraphics().getHeight()/100,20*game.getGraphics().getWidth()/100);
-        exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
-        sound = new Sprite(game , OpeningScreenAsset.sound,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
-        rs = new Sprite(game , OpeningScreenAsset.Rs,70*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+       // exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+        sound = new Sprite(game , OpeningScreenAsset.sound,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+        rs = new Sprite(game , OpeningScreenAsset.Rs,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
         //home = new Sprite(game , OpeningScreenAsset.home,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
         addSprite(background);
         addSprite(playbutton);
-        addSprite(exit);
+       // addSprite(exit);
         addSprite(sound);
         addSprite(rs);
         //addSprite(home);
@@ -84,10 +92,10 @@ public class OpeningScreen extends Screen {
     public void handleTouchDown(int x, int y, int pointer) {
         super.handleTouchDown(x, y, pointer);
 
-        if(exit.contain(x,y)){
+       /* if(exit.contain(x,y)){
             System.exit(0);
             return;
-        }
+        }*/
         if(sound.contain(x,y)){
             if(GameSound.on){
                 GameSound.music.stop();

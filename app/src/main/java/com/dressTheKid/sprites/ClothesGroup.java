@@ -1,6 +1,7 @@
 package com.dressTheKid.sprites;
 
 import com.dressTheKid.assets.GameSound;
+import com.dressTheKid.assets.Tries;
 import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Components.Sprite;
 import com.example.emobadaragaminglib.Base.Game;
@@ -64,18 +65,22 @@ public abstract class ClothesGroup {
             returntoplaces(game);
             setStatic();
             try{
-                GameSound.good.start();
+                if(Tries.badTry==0) {
+                    GameSound.excellent.start();
+                }
+                else {GameSound.good.start();}
             }catch(Exception e){
-
-                sound.play(1);
+                sound.play(5);
             }
+            Tries.goodTry ++;
             wflag = true;
         }else{
             try{
                 GameSound.encouragement.start();
             }catch(Exception e){
-
+                GameSound.failure.get(1).play(5);
             }
+            Tries.badTry ++;
         }
         return wflag ;
     }
@@ -99,17 +104,19 @@ public abstract class ClothesGroup {
                 flag.set(b , false) ;
                 wflag = true;
                 try {
-                    GameSound.excellent.start();
+                    if(Tries.badTry==0)  GameSound.excellent.start();
+                    else GameSound.good.start();
                 }catch (Exception e){
-                    GameSound.success.get(2).play(3);
-
+                    GameSound.success.get(2).play(5);
                 }
+                Tries.goodTry ++ ;
             }else{
                 try{
                     GameSound.encouragement.start();
                 }catch(Exception e){
-
+                    GameSound.failure.get(0).play(5);
                 }
+                Tries.badTry ++;
             }
         }
         return wflag;

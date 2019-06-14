@@ -20,11 +20,42 @@ import com.example.ensias_auth_library.FoxyAuth;
 import com.dressTheKid.R;
 
 import java.util.ArrayList;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.maps.LocationSource;
+import android.content.pm.PackageManager;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentSender;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import java.util.List;
 
 public class OpeningActivity extends AndroidGame {
     static Game g ;
 
     int j =0 ;
+
+
 
     @Override
     public Screen getInitScreen() {
@@ -43,7 +74,6 @@ public class OpeningActivity extends AndroidGame {
         Language.english =  getGraphics().newImage(R.mipmap.english,Graphics.ImageFormat.ARGB8888,getResources());
         GameSound.firston = true;
         GameSound.on = true;
-     //   FoxyAuth.emerge(this,OpeningActivity.class);
         g = this ;
         Shuffle.shuffleBackgroundstart(g);
         Shuffle.shuffleGenderstart(g);
@@ -51,6 +81,7 @@ public class OpeningActivity extends AndroidGame {
 
         return new OpeningScreen(g);
     }
+
 
 
 

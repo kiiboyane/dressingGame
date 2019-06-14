@@ -5,12 +5,14 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.Log;
 
+import com.dressTheKid.PopupActivity;
 import com.dressTheKid.Shuffle;
 import com.dressTheKid.assets.Background;
 import com.dressTheKid.assets.Clothes;
 import com.dressTheKid.assets.GameSound;
 import com.dressTheKid.assets.HumanAsset;
 import com.dressTheKid.assets.OpeningScreenAsset;
+import com.dressTheKid.assets.Tries;
 import com.dressTheKid.assets.WornClothes;
 import com.dressTheKid.sprites.Chest;
 import com.dressTheKid.sprites.Head;
@@ -29,8 +31,15 @@ import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Components.Sprite;
 import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import com.dressTheKid.R;
+import com.example.ensias_auth_library.models.GameStat;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+
+import com.example.ensias_auth_library.FoxyAuth;
 
 public class GameScreen1 extends Screen {
     private final String TAG = "GameScreen1: ";
@@ -55,6 +64,8 @@ public class GameScreen1 extends Screen {
     private int waitabit = -1 ; //used to get some time before re-rendering
     private int h =0,w= 0 ;
     static Game g ;
+    private Calendar firstTime , lastTime  ;
+    private long endTime , startTime ;
     public GameScreen1(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
@@ -64,15 +75,20 @@ public class GameScreen1 extends Screen {
         flag.add(false) ;
         flag.add(false) ;
         flag.add(false) ;
+        SimpleDateFormat endingGame = new SimpleDateFormat("yyyy.MM.dd ' ' HH:mm:ss");
+        firstTime = endingGame.getCalendar();
+        Date endDate = Calendar.getInstance().getTime();
+        startTime = endDate.getTime();
+        //firstTime = new Date();
         rflag = lflag = tflag = pflag =   ff = false  ;
         Shuffle.shuffleShoesstart(game);
         //BackGroundMusic.bg_music.play();
         //BackGroundMusic.bg_music.setLooping(true);
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
         empty = Clothes.empty ;
-        exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
-        home = new Sprite(game , OpeningScreenAsset.home,80*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
-        sound = new Sprite(game , OpeningScreenAsset.sound,70*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
+        //exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
+        home = new Sprite(game , OpeningScreenAsset.home,90*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
+        sound = new Sprite(game , OpeningScreenAsset.sound,80*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
 
         backgroundSprite = new Sprite(game , Background.back,0,0,game.getGraphics().getHeight(),game.getGraphics().getWidth());
        // human = new Sprite(game , Background.human,16*game.getGraphics().getWidth()/100,33*game.getGraphics().getHeight()/100,60*game.getGraphics().getHeight()/100,game.getGraphics().getWidth()/3);
@@ -88,6 +104,8 @@ public class GameScreen1 extends Screen {
         else head = new Head(game , HumanAsset.head,205*game.getGraphics().getWidth()/1000,320*game.getGraphics().getHeight()/1000,25*game.getGraphics().getHeight()/100,25*game.getGraphics().getWidth()/100);
 
         introbool = true;
+        GameSound.Intro.play(5);
+
         // Tops in the clothes
         tops = new Top(game,Clothes.tops.get(0) , Clothes.tops.get(1),Clothes.tops.get(2),WornClothes.tops.get(0),WornClothes.tops.get(1),WornClothes.tops.get(2));
         top1 = tops.group.get(0);
@@ -134,21 +152,24 @@ public class GameScreen1 extends Screen {
 
         addSprite(legs);
         //adding pants
-        addSprite(pants1);
-        addSprite(pants2);
-        addSprite(pants3);
-        addSprite(exit);
+
+        //addSprite(exit);
         addSprite(home);
         addSprite(sound);
 
         addSprite(chest);
+        addSprite(head);
+
+        addSprite(pants1);
+        addSprite(pants2);
+        addSprite(pants3);
         //adding tops
+
         addSprite(top1);
         addSprite(top2);
         addSprite(top3);
 
 
-        addSprite(head);
         addSprite(right_foot);
         addSprite(left_foot);
         // adding leftshoes
@@ -159,7 +180,7 @@ public class GameScreen1 extends Screen {
         addSprite(right_shoe1);
         addSprite(right_shoe2);
         addSprite(right_shoe3);
-        GameSound.Intro.play(3);
+        //GameSound.Intro.play(3);
 
         // tops
         g = game ;
@@ -220,7 +241,14 @@ public class GameScreen1 extends Screen {
         }
         if(rflag && lflag && pflag && tflag  && waitabit > 2 && ff )
         {
+
             GameSound.ending.play(1);
+
+            SimpleDateFormat endingGame = new SimpleDateFormat("yyyy.MM.dd ' ' HH:mm:ss");
+            lastTime= endingGame.getCalendar();
+            Date endDate = Calendar.getInstance().getTime();
+            endTime = endDate.getTime();
+            Tries.duree.add(((double)(startTime - endTime) )/1000) ;
            /* Shuffle.shuffleBackground(game);
             Shuffle.shuffleGender(game);
             Shuffle.shufflePants(game);
@@ -240,17 +268,33 @@ public class GameScreen1 extends Screen {
     public void handleTouchUp(int x, int y, int pointer) {
         super.handleTouchUp(x, y, pointer);
         Log.i(TAG, "handleTouchUp: heeey ");
-        if(exit.contain(x,y)){
+       /* if(exit.contain(x,y)){
             System.exit(0);
-            return;
+      *//*      return;
         }
 
         if(introbool==false){
             introbool = true;
             GameSound.Intro.play(5);
 
-        }
+        }*/
         if(home.contain(x,y)){
+            GameStat gameStat = new GameStat();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd ' ' HH:mm:ss");
+            Calendar updated  = sdf.getCalendar();;
+            gameStat.setApp_id("2019_3_8_2");
+            gameStat.setExercise_id("T_5_33");
+
+            gameStat.setUpdated_at(sdf.format(Tries.creat.getTime()));
+            gameStat.setCreated_at(sdf.format(updated.getTime()));
+            gameStat.setSuccessful_attempts(String.valueOf(Tries.goodTry));
+            gameStat.setFailed_attempts(String.valueOf(Tries.badTry));
+            Collections.sort(Tries.duree);
+            gameStat.setMin_time_succeed_sec(String.valueOf(Tries.duree.get(0)));
+            gameStat.setAvg_time_succeed_sec(String.valueOf(Tries.duree.get(Tries.duree.size()-1)));
+            gameStat.setLongitude( String.valueOf(PopupActivity.longitude));
+            gameStat.setLatitude( String.valueOf(PopupActivity.latitude));
+            FoxyAuth.storeGameStat((Context) g ,gameStat);
             game.setScreen(new OpeningScreen(game));
             return;
         }if(sound.contain(x,y)){
@@ -330,6 +374,23 @@ public class GameScreen1 extends Screen {
 
     @Override
     public void backButton() {
+
+        GameStat gameStat = new GameStat();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd ' ' HH:mm:ss");
+        Calendar updated  = sdf.getCalendar();;
+        gameStat.setApp_id("2019_3_8_2");
+        gameStat.setExercise_id("T_5_33");
+
+        gameStat.setUpdated_at(sdf.format(Tries.creat.getTime()));
+        gameStat.setCreated_at(sdf.format(updated.getTime()));
+        gameStat.setSuccessful_attempts(String.valueOf(Tries.goodTry));
+        gameStat.setFailed_attempts(String.valueOf(Tries.badTry));
+        Collections.sort(Tries.duree);
+        gameStat.setMin_time_succeed_sec(String.valueOf(Tries.duree.get(0)));
+        gameStat.setAvg_time_succeed_sec(String.valueOf(Tries.duree.get(Tries.duree.size()-1)));
+        gameStat.setLongitude( String.valueOf(PopupActivity.longitude));
+        gameStat.setLatitude( String.valueOf(PopupActivity.latitude));
+        FoxyAuth.storeGameStat((Context)g,gameStat);
         pause();
     }
 

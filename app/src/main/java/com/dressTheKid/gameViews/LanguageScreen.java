@@ -33,9 +33,9 @@ public class LanguageScreen  extends Screen {
         english = new Sprite(game ,Language.english,343*w/1000,595*h/1000,15*game.getGraphics().getHeight()/100,30*game.getGraphics().getWidth()/100);
         french = new Sprite(game ,Language.french,343*w/1000,400*h/1000,15*game.getGraphics().getHeight()/100,30*game.getGraphics().getWidth()/100);
         arabic  = new Sprite(game ,Language.arabic,343*w/1000,218*h/1000,15*game.getGraphics().getHeight()/100,30*game.getGraphics().getWidth()/100);
-        exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
-        home = new Sprite(game , OpeningScreenAsset.home,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
-        sound = new Sprite(game , OpeningScreenAsset.sound,70*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+        //exit = new Sprite(game , OpeningScreenAsset.exit,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+        home = new Sprite(game , OpeningScreenAsset.home,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
+        sound = new Sprite(game , OpeningScreenAsset.sound,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
 
 
 
@@ -43,7 +43,7 @@ public class LanguageScreen  extends Screen {
         addSprite(arabic);
         addSprite(french);
         addSprite(english);
-        addSprite(exit);
+        //addSprite(exit);
         addSprite(home);
         addSprite(sound);
         g = game  ;
@@ -114,13 +114,13 @@ public class LanguageScreen  extends Screen {
             game.setScreen(new GameScreen1(game));
             return;
         }
-        if(exit.contain(x,y)){
+       /* if(exit.contain(x,y)){
             //new Activity1() ;
             //game.setScreen(new GameScreen1(game));
             System.exit(0);
 
             return;
-        }
+        }*/
         if(home.contain(x,y)){
             //new Activity1() ;
             //game.setScreen(new GameScreen1(game));

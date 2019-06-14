@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ajj/ajj.iml" filepath="$PROJECT_DIR$/ajj/ajj.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rick-madness-Full-game - Copy.iml" filepath="$PROJECT_DIR$/rick-madness-Full-game - Copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dressingGame.iml" filepath="$PROJECT_DIR$/dressingGame.iml" />
     </modules>
   </component>
 </project>
