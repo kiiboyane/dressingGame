@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dressTheKid">
+    package="com.dressTheKids">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -22,8 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:label">
-        <activity
-            android:name=".PopupActivity">
+        <activity android:name="com.dressTheKids.PopupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,11 +32,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity1"
-            android:label="@string/title_activity_opening"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OpeningActivity"  android:screenOrientation="landscape"></activity>
+            android:name="com.dressTheKids.OpeningActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.dressTheKids.CrashActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

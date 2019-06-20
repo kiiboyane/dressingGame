@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AudioManaging</string>
+    <string name="audio_settings_description">
+        You are able to change audio files
+        whenever you want by importing, adding
+        or deleting them. You can also share
+        those files with the other users by
+        exporting them .
+    </string>
+</resources>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.android.support:design-widget-28.0.0-alpha1">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-widget-28.0.0-alpha1.aar/3921e8e24f2a932edcd3617e373bf5fb/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-widget-28.0.0-alpha1.aar/3921e8e24f2a932edcd3617e373bf5fb/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-widget-28.0.0-alpha1.aar/3921e8e24f2a932edcd3617e373bf5fb/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/design-widget/28.0.0-alpha1/417d1ac47cc6f5508f9c9168cd71d984bf6cfa69/design-widget-28.0.0-alpha1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

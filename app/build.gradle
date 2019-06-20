@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.dressTheKid"
+        applicationId "com.dressTheKids"
         minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
@@ -31,8 +31,8 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.e-mobadara:2d-game-lib:v1.2.0'
     implementation 'com.google.android.gms:play-services:12.0.1'
-    implementation 'com.github.e-mobadara:foxy-auth:v0.2.1-beta'
+    //implementation 'com.github.e-mobadara:foxy-auth:v0.2.1-beta'
+    implementation 'com.github.e-mobadara:foxy-auth:v0.2.3'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation project(':ajj')
-
+    implementation project(':rs')
 }

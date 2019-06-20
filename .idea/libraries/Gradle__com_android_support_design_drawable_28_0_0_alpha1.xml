@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.android.support:design-drawable-28.0.0-alpha1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-drawable-28.0.0-alpha1.aar/54e0189ca5d5ad5c5112c716117999a1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-drawable-28.0.0-alpha1.aar/54e0189ca5d5ad5c5112c716117999a1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/design-drawable/28.0.0-alpha1/b273462995c1d71916c208336786534238907df5/design-drawable-28.0.0-alpha1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
