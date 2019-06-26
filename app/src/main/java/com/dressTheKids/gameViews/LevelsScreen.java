@@ -28,9 +28,6 @@ public class LevelsScreen  extends Screen {
         level2 = new Sprite(game , LevelAsset.level2,60*game.getGraphics().getWidth()/100 , 30*game.getGraphics().getHeight()/100,40*game.getGraphics().getHeight()/100,20*game.getGraphics().getWidth()/100);
         GameSound.soundsprite = new Sprite(game , GameSound.sound,80*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
         home  = new Sprite(game , LevelAsset.home,90*game.getGraphics().getWidth()/100 , 80*game.getGraphics().getHeight()/100,20*game.getGraphics().getHeight()/100,10*game.getGraphics().getWidth()/100);
-
-
-
         addSprite(background);
         addSprite(GameSound.soundsprite);
         addSprite(home);
@@ -38,20 +35,14 @@ public class LevelsScreen  extends Screen {
         addSprite(level2);
 
 
-
         h = game.getGraphics().getHeight() ;
         w = game.getGraphics().getWidth() ;
 
-        if( GameSound.on || GameSound.firston ){
-            Log.i("Opening Screen ", "OpeningScreen:  GameSound.on" + GameSound.on);
-            Log.i("Opening Screen ", "OpeningScreen:  GameSound.firston" + GameSound.firston);
-            GameSound.firston=false;
-            GameSound.music.play();
+        if(GameSound.on){
             GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
         }else{
-            GameSound.music.stop();
-            GameSound.sound = game.getGraphics().newImage(R.mipmap.mute,Graphics.ImageFormat.ARGB8888,game.getResources());
-            GameSound.soundsprite.setImage(GameSound.sound );
+            GameSound.music.setVolume((float)0);
         }
         g = game ;
 
@@ -64,16 +55,16 @@ public class LevelsScreen  extends Screen {
 
     @Override
     public void resume() {
-
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
     }
-
     @Override
     public void backButton() {
-
     }
-
     @Override
-    public void pause() {
+    public void pause(){
+        GameSound.music.setVolume((float)0);
 
     }
 

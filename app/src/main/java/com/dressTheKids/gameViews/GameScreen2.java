@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.dressTheKids.PopupActivity;
+import com.dressTheKids.R;
 import com.dressTheKids.Shuffle;
 import com.dressTheKids.assets.Background;
 import com.dressTheKids.assets.Clothes;
@@ -135,6 +136,12 @@ public class GameScreen2 extends Screen  {
         addSprite(right_shoe1);
         addSprite(right_shoe2);
         addSprite(right_shoe3);
+        if(GameSound.on){
+            GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
+        }else{
+            GameSound.music.setVolume((float)0);
+        }
 
         firstTime =new Date();
 
@@ -236,11 +243,16 @@ public class GameScreen2 extends Screen  {
 
     @Override
     public void pause() {
+            GameSound.music.setVolume(0);
+
         //BackGroundMusic.bg_music.pause();
     }
 
     @Override
     public void resume() {
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
         //BackGroundMusic.bg_music.play();
     }
 

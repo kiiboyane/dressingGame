@@ -43,10 +43,10 @@ public class PopupActivity extends AppCompatActivity  implements com.google.andr
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_popup);
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
-      //  this.setContentView(R.layout.activity_loading);
+        //  this.setContentView(R.layout.activity_loading);
 
         setUpGClient();
-      //  handler.postDelayed(runnable,2000);
+        //  handler.postDelayed(runnable,2000);
         Intent myIntent = new Intent(this, OpeningActivity.class);
         this.startActivity(myIntent);
     }

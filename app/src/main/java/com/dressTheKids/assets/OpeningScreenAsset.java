@@ -6,5 +6,5 @@ public class OpeningScreenAsset {
     public static Image background ;
     public static Image playButton ;
     public static Image exit , home ;
-    public static Image Rs;
+    public static Image Rs , help;
 }

@@ -4,6 +4,7 @@ package com.dressTheKids.gameViews;
 import android.content.Context;
 import android.util.Log;
 
+import com.dressTheKids.OpeningActivity;
 import com.dressTheKids.PopupActivity;
 import com.dressTheKids.Shuffle;
 import com.dressTheKids.assets.Background;
@@ -41,7 +42,7 @@ import com.example.ensias_auth_library.FoxyAuth;
 public class GameScreen1 extends Screen {
     private final String TAG = "GameScreen1: ";
     private Sprite  backgroundSprite;
-    private Sprite  home  ;
+    private Sprite  home  , help ;
 
     //body parts
     private Chest chest;
@@ -79,6 +80,7 @@ public class GameScreen1 extends Screen {
         empty = Clothes.empty ;
 
         home = new Sprite(game , OpeningScreenAsset.home,90*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,11*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
+      //  help = new Sprite(game , OpeningScreenAsset.help,70*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,11*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
         GameSound.soundsprite = new Sprite(game , GameSound.sound,80*game.getGraphics().getWidth()/100 , 90*game.getGraphics().getHeight()/100,10*game.getGraphics().getHeight()/100,8*game.getGraphics().getWidth()/100);
         backgroundSprite = new Sprite(game , Background.back,0,0,game.getGraphics().getHeight(),game.getGraphics().getWidth());
 
@@ -114,6 +116,7 @@ public class GameScreen1 extends Screen {
 
         addSprite(backgroundSprite);
         addSprite(home);
+        //addSprite(help);
         addSprite(GameSound.soundsprite);
 
         addSprite(legs);
@@ -137,6 +140,12 @@ public class GameScreen1 extends Screen {
         addSprite(right_shoe1);
         addSprite(right_shoe2);
         addSprite(right_shoe3);
+        if(GameSound.on){
+            GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
+        }else{
+            GameSound.music.setVolume((float)0);
+        }
 
          firstTime =new Date();
 
@@ -182,12 +191,21 @@ public class GameScreen1 extends Screen {
         super.handleTouchUp(x, y, pointer);
 
 
-
-      if(home.contain(x,y)){
-           Tries.save((Context) game  ,  "1");
-            game.setScreen(new OpeningScreen(game));
+       /* if(help.contain(x,y)){
+            GameSound.Intro.play(5);
             return;
-        }
+        }*/
+        if(home.contain(x,y)){
+          Tries.save((Context) g  ,  "1");
+          //FoxyAuth.storeGameStat((Context) game , gamestat);
+        /*  FoxyAuth.storeGameStat((Context) g  ,
+                  gamestat);
+          OpeningActivity.gamestat= gamestat ;
+
+          OpeningActivity.saveStat("1");*/
+          game.setScreen(new OpeningScreen(game));
+          return;
+      }
         if(GameSound.soundsprite.contain(x,y)){
             GameSound.change(game);
             return;
@@ -231,10 +249,15 @@ public class GameScreen1 extends Screen {
 
     @Override
     public void pause() {
+            GameSound.music.setVolume(0);
+
     }
 
     @Override
     public void resume() {
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
     }
 
 

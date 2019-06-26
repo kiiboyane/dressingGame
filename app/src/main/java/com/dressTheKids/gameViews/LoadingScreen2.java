@@ -33,6 +33,12 @@ public class LoadingScreen2  extends Screen {
         addSprite(background);
         addSprite(loading);
         secondScreenReady = false;
+        if(GameSound.on){
+            GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
+        }else{
+            GameSound.music.setVolume((float)0);
+        }
 
         g = game;
         if(Shuffle.level== 1){
@@ -51,6 +57,7 @@ public class LoadingScreen2  extends Screen {
                     secondScreenReady = true ;
                 }
             }).start();
+
         }else{
             new Thread(new Runnable() {
                 public void run() {
@@ -91,6 +98,9 @@ public class LoadingScreen2  extends Screen {
 
     @Override
     public void resume() {
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
 
     }
 
@@ -101,6 +111,7 @@ public class LoadingScreen2  extends Screen {
 
     @Override
     public void pause() {
+            GameSound.music.setVolume(0);
 
     }
 

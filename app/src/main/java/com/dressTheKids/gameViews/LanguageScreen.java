@@ -42,6 +42,14 @@ public class LanguageScreen  extends Screen {
         addSprite(home);
         addSprite(GameSound.soundsprite);
 
+
+        if(GameSound.on){
+            GameSound.music.setVolume((float)0.2);
+            GameSound.music.setLooping(true);
+        }else{
+            GameSound.music.setVolume((float)0);
+        }
+
         g = game  ;
 
     }
@@ -53,7 +61,9 @@ public class LanguageScreen  extends Screen {
 
     @Override
     public void resume() {
-
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
     }
 
     @Override
@@ -63,6 +73,7 @@ public class LanguageScreen  extends Screen {
 
     @Override
     public void pause() {
+        GameSound.music.setVolume((float) 0);
 
     }
 

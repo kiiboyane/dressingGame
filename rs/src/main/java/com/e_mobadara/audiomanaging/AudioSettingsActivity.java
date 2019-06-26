@@ -22,7 +22,7 @@ public class AudioSettingsActivity extends AppCompatActivity {
         managing_button = findViewById(R.id.audio_file_managing_button);
 
 
-        /*export_button.setOnClickListener(new View.OnClickListener() {
+       /* export_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplication(),ExportImportActivity.class);
@@ -42,7 +42,7 @@ public class AudioSettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
-        */
+*/
         managing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

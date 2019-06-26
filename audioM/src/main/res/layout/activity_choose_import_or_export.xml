@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="fill_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+    android:gravity="center_vertical"
+tools:context=".chooseImportOrExportActivity"
+    android:background = "@mipmap/backlanguage">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/audio_file_export_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:layout_marginBottom="50dp"
+            android:clickable="false"
+            android:text="export"
+            android:theme="@style/AppTheme.Button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/audio_file_import_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:background="@drawable/buttonshape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="import"
+            android:clickable = "false"
+            android:theme="@style/AppTheme.Button" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/retour1"
+        style="@style/AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/audio_file_localy_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="200dp"
+        android:layout_weight="1"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8541D"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:onClick="go"
+        android:text="Retourner "
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:theme="@style/AppTheme.Button" />
+</LinearLayout>
+
+
+</LinearLayout>

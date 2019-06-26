@@ -30,6 +30,7 @@ public class LoadingScreen extends Screen  {
         OpeningScreenAsset.home =   game.getGraphics().newImage(R.mipmap.home,Graphics.ImageFormat.ARGB8888, game.getResources());
         GameSound.sound =   game.getGraphics().newImage(R.mipmap.loud,Graphics.ImageFormat.ARGB8888, game.getResources());
         OpeningScreenAsset.Rs =   game.getGraphics().newImage(R.mipmap.setting,Graphics.ImageFormat.ARGB8888, game.getResources());
+        OpeningScreenAsset.help =   game.getGraphics().newImage(R.mipmap.help,Graphics.ImageFormat.ARGB8888, game.getResources());
         GameSound.music =    game.getAudio().createMusic(R.raw.music);
 
         //the asset for the language screen
@@ -54,6 +55,7 @@ public class LoadingScreen extends Screen  {
 
         Tries.badTry =Tries.goodTry =0 ;
         Tries.duree = new ArrayList<>();
+        GameSound.on = true ;
 
         background = new Sprite(game , LevelAsset.background,0,0,game.getGraphics().getHeight(),game.getGraphics().getWidth());
         //loading = new Sprite(game , LevelAsset.loading,0,0,game.getGraphics().getHeight(),game.getGraphics().getWidth());

@@ -2,6 +2,7 @@ package com.dressTheKids.gameViews;
 
 import android.content.Context;
 
+import com.dressTheKids.R;
 import com.dressTheKids.Shuffle;
 import com.dressTheKids.assets.Background;
 import com.dressTheKids.assets.Clothes;
@@ -127,6 +128,12 @@ public class Game2Screen1 extends Screen  {
         addSprite(right_shoe1);
         addSprite(right_shoe2);
         addSprite(right_shoe3);
+        if(GameSound.on){
+            GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
+        }else{
+            GameSound.music.setVolume((float)0);
+        }
 
         firstTime =new Date();
 
@@ -218,10 +225,15 @@ public class Game2Screen1 extends Screen  {
 
     @Override
     public void pause() {
+            GameSound.music.setVolume(0);
+
     }
 
     @Override
     public void resume() {
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
     }
 
 

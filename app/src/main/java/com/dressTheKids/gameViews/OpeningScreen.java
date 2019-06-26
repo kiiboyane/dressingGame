@@ -7,6 +7,7 @@ import android.util.Log;
 import com.dressTheKids.Shuffle;
 import com.dressTheKids.assets.GameSound;
 import com.dressTheKids.assets.OpeningScreenAsset;
+import android.support.v7.app.AppCompatActivity;
 import com.dressTheKids.assets.Tries;
 import com.e_mobadara.audiomanaging.AudioSettingsActivity;
 import com.example.emobadaragaminglib.Base.Game;
@@ -30,9 +31,15 @@ public class OpeningScreen extends Screen {
         super(game);
 
 
-        GameSound.music.play();
-        GameSound.music.setLooping(true);
-        GameSound.music.setVolume((float)0.2);
+        if(GameSound.firston ){
+            GameSound.firston= false;
+            GameSound.music.play();
+            GameSound.music.setLooping(true);
+            GameSound.music.setVolume((float)0.2);
+        }
+        if(GameSound.on){
+            GameSound.music.setVolume((float)0.2);
+        }
         Tries.badTry =Tries.goodTry =0 ;
         Tries.duree = new ArrayList<>();
 
@@ -59,7 +66,9 @@ public class OpeningScreen extends Screen {
 
     @Override
     public void resume() {
-
+        if(GameSound.on){
+            GameSound.music.setVolume((float) 0.2);
+        }
     }
 
     @Override
@@ -69,7 +78,8 @@ public class OpeningScreen extends Screen {
 
     @Override
     public void pause() {
-
+        Log.i("heellllllooo", "pause: i am in pause ");
+        GameSound.music.setVolume(0);
     }
 
     @Override
@@ -89,4 +99,6 @@ public class OpeningScreen extends Screen {
             return;
         }
     }
+
+
 }

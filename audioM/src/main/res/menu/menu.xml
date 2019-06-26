@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:showAsAction="always"
+    android:id="@+id/menu">
+    <item android:id="@+id/item1" android:title="AR"/>
+    <item android:id="@+id/item2" android:title="FR"/>
+    <item android:id="@+id/item3" android:title="TA"/>
+    <item android:id="@+id/item4" android:title="An"/>
+    <item android:id="@+id/item5" android:title="Da"/>
+</menu>

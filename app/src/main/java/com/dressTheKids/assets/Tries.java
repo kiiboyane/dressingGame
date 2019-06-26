@@ -51,7 +51,7 @@ public class Tries {
         }
     }
 
-    public static void save(Context context, String level) {
+    public static GameStat save(Context context, String level) {
         GameStat gameStat = new GameStat();
         gameStat.setApp_id("2019_3_8_2");
         gameStat.setExercise_id("T_5_33");
@@ -78,6 +78,7 @@ public class Tries {
         badTry=0;
         duree=null;
         duree=new ArrayList();
+        return gameStat;
 
     }
 }

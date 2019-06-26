@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AudioSettingsActivity"
+
+    android:background = "@mipmap/backlanguage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        >
+
+        <Button
+
+            android:id="@+id/audio_file_managing_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/audio_file_localy_button"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8541D"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="manage"
+
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:theme="@style/AppTheme.Button" />
+
+
+        <Button
+
+            android:id="@+id/retour"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/audio_file_localy_button"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="200dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8541D"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:onClick="go"
+            android:text="Retourner "
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:theme="@style/AppTheme.Button" />
+
+        <Button
+            android:id="@+id/audio_file_localy_button"
+            style="@style/AppTheme.Button"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="100dp"
+
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:clickable="false"
+            android:shadowColor="#A8541D"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="Import/export localy"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_marginBottom="50dp"
+            android:theme="@style/AppTheme.Button" />
+
+        <Button
+            android:id="@+id/audio_file_server_button"
+            style="@style/AppTheme.Button"
+
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8541D"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="import/export server"
+            android:clickable = "false"
+            android:theme="@style/AppTheme.Button" />
+        </RelativeLayout>
+
+
+</LinearLayout>

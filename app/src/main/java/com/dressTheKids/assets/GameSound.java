@@ -2,12 +2,12 @@ package com.dressTheKids.assets;
 
 import android.content.Context;
 
+import com.e_mobadara.audiomanaging.moblibAudioFileManager;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Image;
 import android.media.MediaPlayer;
 import android.util.Log;
 
-import com.e_mobadara.audiomanaging.moblibAudioFileManager;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Music;
 import com.example.emobadaragaminglib.Components.Sprite;
@@ -32,7 +32,7 @@ public class GameSound {
            Integer i = Language.chosenLanguage;
            success = new ArrayList<AndroidSound>() ;
            failure = new ArrayList<MediaPlayer>() ;
-           on = true  ;
+           //on = true  ;
 
         ending =  (AndroidSound) game.getAudio().createSound(R.raw.ending);
         if(i==2){
@@ -96,16 +96,15 @@ public class GameSound {
             Log.i("Opening Screen ", "OpeningScreen:  GameSound.on" + GameSound.on);
             Log.i("Opening Screen ", "OpeningScreen:  GameSound.firston" + GameSound.firston);
             GameSound.on = true;
-            GameSound.music.play();
-            GameSound.music.setVolume((float)0.2);
+            //GameSound.music.play();
             GameSound.music.setVolume((float)0.2);
             GameSound.music.setLooping(true);
             GameSound.sound = game.getGraphics().newImage(R.mipmap.loud,Graphics.ImageFormat.ARGB8888,game.getResources());
             GameSound.soundsprite.setImage(GameSound.sound );
         }else{
-            GameSound.music.stop();
             GameSound.sound = game.getGraphics().newImage(R.mipmap.mute,Graphics.ImageFormat.ARGB8888,game.getResources());
             GameSound.soundsprite.setImage(GameSound.sound );
+            GameSound.music.setVolume(0);
             GameSound.on = false;
         }
     }
